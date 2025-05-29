@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import sqlite3
 import sql
 import random
@@ -220,4 +220,4 @@ uncorrect = [""]
 app.run()
 
 
->>>>>>> da07ae0 (f)
+

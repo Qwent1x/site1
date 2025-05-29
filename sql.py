@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import pprint
 import sqlite3
 def create_questions(path_to_db):
@@ -302,5 +302,5 @@ def get_all_questions(path_to_db='site.db'):
 #     data = cursor.fetchall()
 #     pprint.pprint(data)
 #     return data
->>>>>>> da07ae0 (f)
+
 pprint.pprint(get_all_questions())

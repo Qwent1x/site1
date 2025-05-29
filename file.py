@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import sqlite3
 import sql
 conn = sqlite3.connect('site.db')
@@ -34,5 +34,5 @@ for i in questions:
 
 conn.commit()
 conn.close()
->>>>>>> da07ae0 (f)
+
     
