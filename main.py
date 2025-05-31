@@ -3,9 +3,11 @@ import sqlite3
 import sql
 import random
 from flask import Flask, render_template
+import time
 
 actual_answer = 0
 right_answer = 0
+start_time = 0
 
 app = Flask(__name__)
 
@@ -13,11 +15,15 @@ app = Flask(__name__)
 def start():
     global actual_answer
     global right_answer
+    global start_time
     questions = sql.get_all_questions()
 
     if actual_answer >= len(questions):
-        return render_template('index3.html', right_question = right_answer)
-
+        actual_answer=0
+        time_ = time.time()-start_time
+        return render_template('index3.html', right_question = right_answer, time = round(time_,2))
+    if actual_answer ==0 :
+        start_time = time.time()
     # Витягуємо одне питання
     question_text = questions[actual_answer][1]
     image_path = questions[actual_answer][2]
@@ -55,11 +61,15 @@ def start():
 def start_():
     global actual_answer
     global right_answer
+    global start_time
     questions = sql.get_all_questions()
 
     if actual_answer >= len(questions):
-        return render_template('index3.html', right_question = right_answer)
-
+        actual_answer = 0
+        time_ = time.time() - start_time
+        return render_template('index3.html', right_question=right_answer, time=round(time_,2))
+    if actual_answer == 0 :
+        start_time = time.time()
     # Витягуємо одне питання
     question_text = questions[actual_answer][1]
     image_path = questions[actual_answer][2]
