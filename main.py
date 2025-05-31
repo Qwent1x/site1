@@ -19,9 +19,12 @@ def start():
     questions = sql.get_all_questions()
 
     if actual_answer >= len(questions):
-        actual_answer=0
-        time_ = time.time()-start_time
-        return render_template('index3.html', right_question = right_answer, time = round(time_,2))
+        actual_answer = 0
+        time_ = time.time() - start_time
+        result = right_answer
+        right_answer = 0  # обнуляємо після збереження
+        return render_template('index3.html', right_question=result, time=round(time_, 2))
+
     if actual_answer ==0 :
         start_time = time.time()
     # Витягуємо одне питання
